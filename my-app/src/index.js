@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+// 正方形のマス目を表すReactコンポーネント
 class Square extends React.Component {
   render() {
     return (
@@ -12,6 +13,7 @@ class Square extends React.Component {
   }
 }
 
+// 盤面を表すReactコンポーネント
 class Board extends React.Component {
   renderSquare(i) {
     return <Square />;
@@ -43,6 +45,7 @@ class Board extends React.Component {
   }
 }
 
+// 盤面とプレースホルダーを描画するReactコンポーネント
 class Game extends React.Component {
   render() {
     return (
