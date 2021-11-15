@@ -2,15 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-// 正方形のマス目を表すReactコンポーネント
-class Square extends React.Component {
-  render() {
-    return (
-      <button className="square" onClick={() => this.props.onClick() }>
-        {this.props.value}
-      </button>
-    );
-  }
+// 正方形のマス目を表すReact関数コンポーネント
+// renderメソッドだけを有して自分のstateを持たないコンポーネント
+// をよりシンプルに書くための方法
+function Square(props) {
+  return (
+    <button className="square" onClick={props.onClick}>
+      {props.value}
+    </button>
+  );
 }
 
 // 盤面を表すReactコンポーネント
