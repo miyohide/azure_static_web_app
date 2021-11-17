@@ -10,7 +10,6 @@ function Header() {
           <Navbar.Brand href="#">Posts!!!</Navbar.Brand>
         </Container>
       </Navbar>
-      ヘッダー
     </div>
   );
 }
