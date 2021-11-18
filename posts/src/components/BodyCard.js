@@ -1,13 +1,15 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 
-function BodyCard() {
+function BodyCard(props) {
+  const { title, body } = props;
+
   return (
     <Card>
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>{title}</Card.Title>
         <Card.Text>
-          This is card text content.
+          {body}
         </Card.Text>
       </Card.Body>
     </Card>
