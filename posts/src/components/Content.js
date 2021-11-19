@@ -17,6 +17,14 @@ const cardContents = [
     title: "タイトル3",
     body: "本文3"
   },
+  {
+    title: "タイトル4",
+    body: "本文4"
+  },
+  {
+    title: "タイトル5",
+    body: "本文5"
+  },
 ]
 
 function Content() {
@@ -29,7 +37,7 @@ function Content() {
   };
   return (
     <Container>
-      <Row>
+      <Row xs={1} md={3} className="g-2">
         {cardContents.map(contentObj => getCardContent(contentObj))}
       </Row>
     </Container>
