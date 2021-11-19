@@ -32,7 +32,7 @@ function Content() {
   const getCardContent = getObj => {
     return (
       <Col>
-        // スプレッド構文。getObjのすべての要素をBodyCardのproperty（props）に渡す
+        {/* スプレッド構文。getObjのすべての要素をBodyCardのproperty（props）に渡す */}
         <BodyCard {...getObj} />
       </Col>
     );
@@ -40,8 +40,9 @@ function Content() {
   return (
     <Container>
       <Row xs={1} md={3} className="g-2">
-        // map() は与えられた関数を配列の全ての要素に対して呼び出し、
-        // その結果からなる新しい配列を生成する
+        {/* map() は与えられた関数を配列の全ての要素に対して呼び出し、
+            その結果からなる新しい配列を生成する
+        */}
         {cardContents.map(contentObj => getCardContent(contentObj))}
       </Row>
     </Container>
