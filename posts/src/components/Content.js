@@ -6,8 +6,13 @@ import BodyCard from './BodyCard';
 import axios from 'axios';
 
 function Content() {
+  // Reactのステートフックを利用してstate変数であるpostを初期化し、
+  // 更新するsetPosts関数を取得する。
+  // ここでは、postを[]で初期化する
   const [post, setPosts] = useState([])
 
+  // useEffectを利用してJSONデータを取得してsetPostsでstate変数である
+  // postを更新する
   useEffect(() => {
     axios.get('https://jsonplaceholder.typicode.com/posts')
     .then(res => {
