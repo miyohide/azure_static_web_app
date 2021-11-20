@@ -17,11 +17,10 @@ function Content() {
 
   // 名前付き関数（アロー関数式を使った記述）
   const getCardContent = getObj => {
-    const bodyCardContent = {...getObj};
     return (
       <Col key={getObj.id}>
         {/* スプレッド構文。getObjのすべての要素をBodyCardのproperty（props）に渡す */}
-        <BodyCard {...bodyCardContent} />
+        <BodyCard {...getObj} />
       </Col>
     );
   };
