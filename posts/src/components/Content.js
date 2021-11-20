@@ -1,39 +1,27 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import BodyCard from './BodyCard';
-
-const cardContents = [
-  {
-    title: "タイトル1",
-    body: "本文1"
-  },
-  {
-    title: "タイトル2",
-    body: "本文2"
-  },
-  {
-    title: "タイトル3",
-    body: "本文3"
-  },
-  {
-    title: "タイトル4",
-    body: "本文4"
-  },
-  {
-    title: "タイトル5",
-    body: "本文5"
-  },
-]
+import axios from 'axios';
 
 function Content() {
+  const [post, setPosts] = useState([])
+
+  useEffect(() => {
+    axios.get('https://jsonplaceholder.typicode.com/posts')
+    .then(res => {
+      setPosts(res.data)
+    })
+  }, [])
+
   // 名前付き関数（アロー関数式を使った記述）
   const getCardContent = getObj => {
+    const bodyCardContent = {...getObj};
     return (
-      <Col>
+      <Col key={getObj.id}>
         {/* スプレッド構文。getObjのすべての要素をBodyCardのproperty（props）に渡す */}
-        <BodyCard {...getObj} />
+        <BodyCard {...bodyCardContent} />
       </Col>
     );
   };
@@ -43,7 +31,7 @@ function Content() {
         {/* map() は与えられた関数を配列の全ての要素に対して呼び出し、
             その結果からなる新しい配列を生成する
         */}
-        {cardContents.map(contentObj => getCardContent(contentObj))}
+        {post.map(contentObj => getCardContent(contentObj))}
       </Row>
     </Container>
   );
