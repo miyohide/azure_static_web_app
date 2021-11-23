@@ -14,7 +14,7 @@ function Content() {
   // useEffectを利用してJSONデータを取得してsetPostsでstate変数である
   // postを更新する
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/posts')
+    axios.get('/api/post')
     .then(res => {
       setPosts(res.data)
     })
